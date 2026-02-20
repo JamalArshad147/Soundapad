@@ -15,7 +15,7 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "injectedMixer.js"
+                "injected-mixer.js"
             ],
             "matches": [
                 "<all_urls>"
@@ -31,20 +31,9 @@
                 "<all_urls>"
             ],
             "js": [
-                "injectedMixer.js"
-            ],
-            "run_at": "document_start",
-            "world": "MAIN"
-        },
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
                 "content.js"
             ],
-            "run_at": "document_start",
-            "world": "ISOLATED"
+            "run_at": "document_start"
         }
     ]
 }
