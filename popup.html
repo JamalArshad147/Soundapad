@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            width: 480px;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 15px;
+            background: #f4f4f4;
+            margin: 0;
+        }
+
+        .recorder-box {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #visualizer {
+            width: 100%;
+            height: 60px;
+            background: #eee;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .control-btn {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            transition: 0.2s;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        #btnRecord {
+            background: #ff4757;
+        }
+
+        #btnPause {
+            background: #ffa502;
+        }
+
+        #btnStop {
+            background: #2f3542;
+        }
+
+        .control-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .recording-item {
+            background: white;
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .rec-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .rec-name {
+            font-weight: 600;
+            font-size: 13px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .wave-canvas {
+            width: 60px;
+            height: 30px;
+            background: #f9f9f9;
+            border-radius: 3px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+
+        .text-btn {
+            padding: 6px 10px;
+            font-size: 10px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .play {
+            background: #2ed573;
+        }
+
+        .restart {
+            background: #9b59b6;
+        }
+
+        .save {
+            background: #1e90ff;
+        }
+
+        /* Blue for Save */
+        .delete {
+            background: #ff4757;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .import-btn {
+            width: 100%;
+            background: #e0e0e0;
+            border: 1px solid #ccc;
+            padding: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnImport" class="import-btn">Import Files</button>
+    <input type="file" id="fileInput" multiple accept="audio/*">
+    <div class="recorder-box">
+        <canvas id="visualizer"></canvas>
+        <button id="btnRecord" class="control-btn">Start Recording</button>
+        <button id="btnPause" class="control-btn" disabled>Pause</button>
+        <button id="btnStop" class="control-btn" disabled>Stop & Save</button>
+        <p id="status" style="font-size: 12px; color: #666; margin-top:5px;">Ready</p>
+    </div>
+    <div style="margin-top:20px; font-weight:bold; color:#555; border-bottom: 2px solid #ddd; padding-bottom: 5px;">
+        Recordings</div>
+    <ul id="recordingsList" style="list-style:none; padding:0;"></ul>
+    <script src="popup.js"></script>
+</body>
+</html>
